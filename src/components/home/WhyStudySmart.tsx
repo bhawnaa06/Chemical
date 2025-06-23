@@ -1,157 +1,94 @@
-'use client';
-
-import Image from "next/image";
+"use client";
+import {
+  LucideIcon,
+  FlaskConical,
+  Factory,
+  ShieldCheck,
+  TrendingUp,
+  BookOpenCheck,
+  Network,
+} from "lucide-react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
-const cardData = [
-  {
-    title: "6000+ Students",
-    description: "Guided thousands of students to top universities worldwide.",
-    image: "/students.png",
-    icon: "🎓",
-  },
-  {
-    title: "5+ Countries",
-    description: "Admissions across Germany, UK, Ireland, Austria & more.",
-    image: "/countries.png",
-    icon: "🌍",
-  },
-  {
-    title: "5 Major Cities",
-    description: "Presence in Delhi, Pune, Mumbai, Nashik & Hyderabad.",
-    image: "/cities.png",
-    icon: "🏙️",
-  },
-];
+// FeatureCard Component
+interface FeatureCardProps {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  delay: number; // For staggered animations
+}
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-const itemVariants = {
-  hidden: { y: 30, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.6 },
-  },
-};
-
-export default function WhyStudySmart() {
-  return (
-    <section className="bg-gradient-to-b from-[#fff7ed] to-white py-20 px-6 md:px-20 text-black">
-      <div className="max-w-6xl mx-auto">
-        {/* Heading & Description */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4"
-          >
-            Why Choose <span className="text-[#fb5607]">ALL UNI ADMITS?</span>
-          </motion.h2>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-4"
-          >
-            We&apos;re here to give wings to your global education dreams.
-          </motion.p>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-base text-gray-600 max-w-3xl mx-auto"
-          >
-            More than consultants, we are your partners in success—providing personalized guidance, expert preparation, and trusted support for your study abroad journey.
-          </motion.p>
-        </motion.div>
-
-        {/* Cards */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-10"
-        >
-          {cardData.map((card, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="group relative bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
-            >
-              {/* Soft glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#fefae0] opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-xl" />
-
-              {/* Icon */}
-              <div className="text-5xl mb-4 animate-pulse-slow text-[#fb5607]">
-                {card.icon}
-              </div>
-
-              {/* Image */}
-              <div className="w-full h-40 relative mb-6 rounded-lg overflow-hidden border">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-bold text-gray-800 mb-2">{card.title}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{card.description}</p>
-
-              {/* Bottom Border Accent */}
-              <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-[#fb5607] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-20 text-center"
-        >
-          <p className="text-base text-gray-700 mb-6 max-w-xl mx-auto">
-            We proudly serve from Delhi, Pune, Mumbai, Nashik & Hyderabad—guiding 6000+ students to top institutions in 12+ countries.
-          </p>
-          <Link href="/contact">
-            <button className="bg-[#fb5607] hover:bg-[#e04e06] text-white font-semibold py-3 px-6 rounded-full shadow-md text-base transition-all duration-300 hover:scale-105">
-              🚀 Start Your Journey
-            </button>
-          </Link>
-        </motion.div>
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay }}
+    viewport={{ once: true }}
+    className="bg-black/30 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow border border-green-500/50 hover:border-green-500/80"
+  >
+    <div className="flex items-center mb-6">
+      <div className="w-12 h-12 flex items-center justify-center bg-green-500/10 rounded-lg">
+        <Icon className="w-8 h-8 text-green-400 drop-shadow-glow" />
       </div>
+      <h3 className="text-2xl font-semibold text-white ml-4">{title}</h3>
+    </div>
+    <p className="text-gray-300 text-lg leading-relaxed">{description}</p>
+  </motion.div>
+);
 
-      {/* Animation */}
-      <style jsx>{`
-        .animate-pulse-slow {
-          animation: pulse 6s infinite ease-in-out;
-        }
-        @keyframes pulse {
-          0%, 100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.15);
-          }
-        }
-      `}</style>
+export default function WhyUsenseonLabs() {
+  return (
+    <section className="bg-gradient-to-br from-gray-900 to-black text-white py-20 px-6 text-center relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-green-500/10 blur-[150px] rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-5xl font-bold mb-16 text-white drop-shadow-glow relative"
+      >
+        Future-Ready <span className="text-green-400">Chemical Managment System</span>
+      </motion.h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+        <FeatureCard
+          icon={FlaskConical}
+          title="Advanced Formulations"
+          description="Cutting-edge chemical products tailored for evolving industrial needs."
+          delay={0.1}
+        />
+        <FeatureCard
+          icon={Factory}
+          title="Industrial-Grade Quality"
+          description="Reliable and scalable solutions for manufacturing and laboratory use."
+          delay={0.2}
+        />
+        <FeatureCard
+          icon={ShieldCheck}
+          title="Safety & Compliance"
+          description="Strict adherence to safety protocols and global industry standards."
+          delay={0.3}
+        />
+        <FeatureCard
+          icon={TrendingUp}
+          title="Innovation-Driven"
+          description="Constant R&D for next-gen chemical technologies and improvements."
+          delay={0.4}
+        />
+        <FeatureCard
+          icon={BookOpenCheck}
+          title="Technical Documentation"
+          description="Detailed MSDS, COA, and product guides to support your operations."
+          delay={0.5}
+        />
+        <FeatureCard
+          icon={Network}
+          title="Global Reach"
+          description="Serving clients across industries and geographies with trust."
+          delay={0.6}
+        />
+      </div>
     </section>
   );
 }

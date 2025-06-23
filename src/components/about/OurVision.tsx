@@ -1,30 +1,38 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 const OurVision = () => (
-  <section className="bg-gray-100 text-gray-900 py-16 px-6">
-    <div className="max-w-5xl mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-6">Our Vision</h2>
-      <p className="text-lg mb-4">
-        We&apos;re building more than just devices — we&apos;re crafting the infrastructure for tomorrow&apos;s AI-powered, autonomous labs.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-xl font-semibold mb-2">Scalable</h3>
-          <p>Deployable across multiple lab environments, from R&D to production facilities.</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-xl font-semibold mb-2">Smart</h3>
-          <p>AI-driven analytics that optimize inventory, usage patterns, and lab performance.</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-xl font-semibold mb-2">Sustainable</h3>
-          <p>Reduces waste, prevents stock-outs, and promotes responsible lab practices.</p>
-        </div>
+ 
+    <section className="flex flex-col md:flex-row items-center justify-between bg-white py-25 px-30">
+
+       {/* Image Section */}
+      <div className="md:w-1/3">
+        <Image
+          src="/our-vision.jpg" // Replace with actual image path (e.g. /images/why-us.jpg)
+          alt="Consulting session"
+          width={600}
+          height={500}
+          className="rounded-lg object-cover w-full h-full"
+        />
       </div>
-    </div>
-  </section>
-);
+
+      {/* Text Section */}
+      <div className="md:w-1/2 mb-10 md:mb-0">
+        <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Vision</h2>
+        <p className="text-gray-700 mb-6 leading-relaxed">
+          Our consulting agency provides consulting, ideas, and resources for people working to create social change.
+          We bring the right people together to challenge established thinking and drive transformation.
+          We work with our clients to build the capabilities that enable organizations to achieve sustainable advantage.
+        </p>
+        {/* <a href="#" className="text-blue-600 underline font-medium">read more</a> */}
+      </div>
+
+     
+    </section>
+  );
+
+
 
 export default OurVision;

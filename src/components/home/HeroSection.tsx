@@ -205,24 +205,24 @@ const AnimatedHeroSection = () => {
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <span className="bg-gradient-to-r from-gray-300 via-silver to-gray-500 bg-clip-text text-transparent">
-              FUTURE
+              Future of 
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              IS HERE
+            <span className="bg-gradient-to-r from-green-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+             AI Lab
             </span>
           </h1>
           <p className={`text-base sm:text-lg md:text-2xl text-gray-300 mb-12 leading-relaxed transition-all duration-2000 delay-300 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            Experience the next dimension of digital innovation with our cutting-edge 3D technology
+           At USENSEON LABS, we combine science and innovation to deliver high-quality, reliable, and sustainable chemical solutions for industrial and laboratory applications.
           </p>
           <div className={`flex flex-col sm:flex-row gap-6 transition-all duration-2000 delay-500 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 transform">
+            <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-300 hover:scale-105 transform">
               <span className="relative z-10">Explore Now</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-purple-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
             <button className="group px-8 py-4 border-2 border-gray-500 rounded-full text-gray-300 font-semibold text-lg hover:border-white hover:text-white transition-all duration-300 hover:scale-105 transform hover:shadow-lg hover:shadow-white/10">
               Learn More

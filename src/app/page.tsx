@@ -18,14 +18,12 @@ export default function Home() {
       <main>
          <HeroSection />
          <WhyStudySmart />
-         <WhySmartSection/>
-         <StudyDestinationsSlider/>
+         {/* <StudyDestinationsSlider/> */}
+         {/* <PartnersSection/> */}
          <ServicesSection/>
-         <PartnersSection/>
-         <PopularCourses/>
+         <WhySmartSection/>
          <SuccessStories/>
-         
-         
+           <PopularCourses/>
      
       </main>
     </>

@@ -1,130 +1,110 @@
-'use client';
-
-import React from 'react';
+"use client";
 import {
-  GraduationCap,
-  Globe,
-  FileText,
-  BookOpen,
-  HelpCircle,
-  Wallet,
-  ClipboardList,
-  Airplay,
-  Home,
-  Shield,
-  Send,
-  CheckCircle,
-} from 'lucide-react';
+  LucideIcon,
+  FilePlus,
+  BookOpenCheck,
+  FlaskConical,
+  ShieldCheck,
+  Truck,
+  ArrowRight,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
-interface Service {
+// StepCard Component
+interface StepCardProps {
+  icon: LucideIcon;
   title: string;
-  icon: React.ReactNode;
   description: string;
+  delay: number;
 }
 
-const services: Service[] = [
-  {
-    title: 'Comprehensive Education Counselling',
-    icon: <GraduationCap className="w-7 h-7 text-white" />,
-    description:
-      'We help you choose the right academic path aligned with your goals, turning study abroad dreams into focused career journeys.',
-  },
-  {
-    title: 'Profiling & Career Guidance',
-    icon: <ClipboardList className="w-7 h-7 text-white" />,
-    description:
-      'Your skills, background, and ambition are mapped to shape a strong academic profile for admissions and scholarships.',
-  },
-  {
-    title: 'Country, University & Course Selection',
-    icon: <Globe className="w-7 h-7 text-white" />,
-    description:
-      'We match your interests with the ideal country, university, and course for maximum academic and career benefit.',
-  },
-  {
-    title: 'Applications & Admission Process',
-    icon: <FileText className="w-7 h-7 text-white" />,
-    description:
-      'Our experts handle SOPs, LORs, and application documentation so you can focus on preparing for your new journey.',
-  },
-  {
-    title: 'Test Preparation',
-    icon: <BookOpen className="w-7 h-7 text-white" />,
-    description:
-      'From IELTS to GRE, we coach you to ace your exams and improve your eligibility for top universities.',
-  },
-  {
-    title: 'Interview Preparations',
-    icon: <HelpCircle className="w-7 h-7 text-white" />,
-    description:
-      'Mock interviews and tips to help you confidently face admission or visa interviews with clarity and success.',
-  },
-  {
-    title: 'Scholarship Assistance',
-    icon: <Wallet className="w-7 h-7 text-white" />,
-    description:
-      'We guide you to discover and apply for scholarships that make studying abroad more affordable.',
-  },
-  {
-    title: 'Loan Assistance',
-    icon: <Shield className="w-7 h-7 text-white" />,
-    description:
-      'With our partner banks and loan experts, you can fund your education with minimum stress and paperwork.',
-  },
-  {
-    title: 'Visa Documentation',
-    icon: <FileText className="w-7 h-7 text-white" />,
-    description:
-      'Our visa success rate is high because we ensure every document is perfect and every step is clear.',
-  },
-  {
-    title: 'Pre Departure Services',
-    icon: <Airplay className="w-7 h-7 text-white" />,
-    description:
-      'Learn what to pack, how to adapt, and everything else you need before boarding your flight.',
-  },
-  {
-    title: 'Accommodation',
-    icon: <Home className="w-7 h-7 text-white" />,
-    description:
-      'On-campus or off-campus—get reliable housing options before you even land.',
-  },
-  {
-    title: 'Essential Services',
-    icon: <Send className="w-7 h-7 text-white" />,
-    description:
-      'SIM cards, health insurance, forex—get it all done right from home.',
-  },
-  {
-    title: 'Post Departure Services',
-    icon: <CheckCircle className="w-7 h-7 text-white" />,
-    description:
-      'Need help overseas? We offer support even after you land, from emergencies to settling in.',
-  },
-];
+const StepCard: React.FC<StepCardProps> = ({ icon: Icon, title, description, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay }}
+    viewport={{ once: true }}
+    className="bg-black/40 backdrop-blur-md p-6 rounded-xl shadow-lg border border-green-500/20 hover:shadow-green-500/30 hover:border-green-500/50 transition-all text-left"
+  >
+    <div className="flex items-center mb-4">
+      <div className="w-12 h-12 flex items-center justify-center bg-green-500/10 rounded-lg">
+        <Icon className="w-7 h-7 text-green-400" />
+      </div>
+      <h3 className="text-xl font-semibold text-white ml-4">{title}</h3>
+    </div>
+    <p className="text-gray-300 text-base leading-relaxed">{description}</p>
+  </motion.div>
+);
 
 const ServicesSection = () => {
   return (
-    <section className="bg-[#fefae0] py-20 px-4 sm:px-8 lg:px-20">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-4">
-          ✨ Services for Study Abroad
-        </h2>
-        <div className="h-1 w-20 bg-[#fb5607] mx-auto mb-12 rounded-full" />
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white border border-[#fb5607] rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col items-center text-center"
-            >
-              <div className="bg-[#5ce1e6] p-3 rounded-full mb-4">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-semibold text-[#fb5607] mb-2">{service.title}</h3>
-              <p className="text-gray-700 text-sm">{service.description}</p>
-            </div>
-          ))}
+    <section className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden">
+      {/* Glowing Background Effect */}
+      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-green-500/10 blur-[150px] rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-bold mb-14 drop-shadow-lg"
+        >
+          Future-Ready <span className="text-green-400">Chemical Solutions</span>
+        </motion.h2>
+
+        {/* Step Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <StepCard
+            icon={FilePlus}
+            title="Submit Requirements"
+            description="Share your chemical needs or custom formulation goals with us."
+            delay={0.1}
+          />
+          <StepCard
+            icon={BookOpenCheck}
+            title="Expert Consultation"
+            description="Get personalized guidance from our technical specialists."
+            delay={0.2}
+          />
+          <StepCard
+            icon={FlaskConical}
+            title="R&D & Formulation"
+            description="We develop and refine solutions in our state-of-the-art lab."
+            delay={0.3}
+          />
+          <StepCard
+            icon={ShieldCheck}
+            title="Testing & Compliance"
+            description="All solutions are quality-tested and meet industry standards."
+            delay={0.4}
+          />
+          <StepCard
+            icon={Truck}
+            title="Delivery & Support"
+            description="Receive on-time delivery and ongoing product assistance."
+            delay={0.5}
+          />
         </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-14"
+        >
+          <Link
+            href="#contact" // Adjust this to your actual contact form route
+            className="inline-flex items-center justify-center px-6 py-3 bg-green-500 text-white rounded-lg text-lg font-medium hover:bg-green-600 transition-all"
+          >
+            <span className="mr-2">Request a Solution</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

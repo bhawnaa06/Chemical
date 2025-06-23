@@ -1,56 +1,74 @@
-'use client';
-
-import React from 'react';
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
-
-const stats = [
-  { value: 14, suffix: '+', label: 'Years of Experience' },
-  { value: 6000, suffix: '+', label: 'Students Placed' },
-  { value: 98, suffix: '%', label: 'Visa Success Rate' },
-  { value: 80000, suffix: '+', label: 'Hours Counseling' },
-  { value: 7, suffix: '+ Million', label: 'USD Scholarships Won' },
-  { value: 1200, suffix: '+', label: 'Students in QS Top Universities' },
-];
+import React from "react";
+import Link from "next/link";
 
 export default function WhySmartSection() {
-  const { ref, inView } = useInView({ triggerOnce: true });
-
   return (
-    <section className="bg-[#fefae0] py-20 px-4 md:px-20" ref={ref}>
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-16 leading-tight">
-          🚀 We Focus On <span className="text-[#fb5607]">Your Success</span>
-        </h2>
+    <section className="py-20 bg-black text-white">
+      <div className="max-w-6xl mx-auto text-center px-4">
+        <h2 className="text-4xl font-bold mb-16">Join Our Community</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center border border-gray-100"
-            >
-              <p className="text-3xl md:text-4xl font-extrabold text-[#fb5607] mb-2">
-                {inView ? (
-                  <CountUp
-                    start={0}
-                    end={stat.value}
-                    duration={8}            // Slow for all
-                    delay={i * 0.3}         // Optional: staggered effect
-                    decimals={0}            // Ensures consistent visual speed
-                    suffix={stat.suffix}
-                    separator=","
-                  />
-                ) : (
-                  '0'
-                )}
-              </p>
-              <p className="text-sm md:text-base text-gray-700 font-medium leading-snug">
-                {stat.label}
-              </p>
+        <div className="grid gap-10 md:grid-cols-2">
+          {/* Business Card */}
+          <div className="bg-neutral-900 border border-white/10 rounded-2xl p-10 hover:scale-105 transition-transform">
+            <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mx-auto mb-8">
+              <span className="text-2xl">🏢</span>
             </div>
-          ))}
+            <h3 className="text-2xl font-semibold mb-6">For Businesses</h3>
+            <ul className="text-left space-y-4 mb-8">
+              <li className="flex items-center">
+                <span className="text-green-600 mr-2">✓</span>
+                Access to verified influencers
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-600 mr-2">✓</span>
+                Campaign management tools
+              </li>
+              <li className="flex items-center">
+                <span className="text-purpgreenle-600 mr-2">✓</span>
+                Detailed analytics & reporting
+              </li>
+            </ul>
+            <Link
+              href="https://app.networtyideas.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-green-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-green-700 transition"
+            >
+              Start as Business
+            </Link>
+          </div>
+
+          {/* Influencer Card */}
+          <div className="bg-neutral-900 border border-white/10 rounded-2xl p-10 hover:scale-105 transition-transform">
+            <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mx-auto mb-8">
+              <span className="text-2xl">🌟</span>
+            </div>
+            <h3 className="text-2xl font-semibold mb-6">For Influencers</h3>
+            <ul className="text-left space-y-4 mb-8">
+              <li className="flex items-center">
+                <span className="text-green-600 mr-2">✓</span>
+                Find brand collaborations
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-600 mr-2">✓</span>
+                Get matched with ideal brands
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-600 mr-2">✓</span>
+                Secure payment system
+              </li>
+            </ul>
+            <Link
+              href="https://app.networtyideas.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full border-2 border-green-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-green-600 hover:border-green-700 transition"
+            >
+              Join as Influencer
+            </Link>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};

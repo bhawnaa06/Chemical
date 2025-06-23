@@ -1,70 +1,85 @@
-'use client';
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-import React from 'react';
-import Image from 'next/image';
+const urlEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT || ""; 
 
-interface Student {
+// TestimonialCard Component
+interface TestimonialCardProps {
   name: string;
-  image: string;
-  university: string;
+  role: string;
+  content: string;
+  avatar: string;
+  delay: number;
 }
 
-const students: Student[] = [
-  {
-    name: 'Sachi Kothari',
-    image: '/images/students/student1.jpg',
-    university: 'University of Leeds',
-  },
-  {
-    name: 'Raj Navalakha',
-    image: '/images/students/student2.jpg',
-    university: 'University of Warwick',
-  },
-  {
-    name: 'Sanskriti Dabhade',
-    image: '/images/students/student3.jpg',
-    university: 'Trinity College Dublin',
-  },
-  {
-    name: 'George Yaldho',
-    image: '/images/students/student4.jpg',
-    university: 'University of Kent',
-  },
-  {
-    name: 'Riya Agrawal',
-    image: '/images/students/student5.jpg',
-    university: 'University of Melbourne',
-  },
-];
+const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  name,
+  role,
+  content,
+  avatar,
+  delay,
+}) => {
+  const avatarUrl = avatar.startsWith("http") ? avatar : `${urlEndpoint}/${avatar}`;
 
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay }}
+      viewport={{ once: true }}
+      className="bg-black/30 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow border border-green-500/50 hover:border-green-500/80 backdrop-blur-md"
+    >
+      <div className="flex items-center mb-6">
+        <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-green-500/20 mr-4 relative">
+          <Image
+            src={avatarUrl}
+            alt={name}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold text-white">{name}</h3>
+          <p className="text-sm text-gray-300">{role}</p>
+        </div>
+      </div>
+      <p className="text-gray-300 leading-relaxed">{content}</p>
+    </motion.div>
+  );
+};
 const SuccessStories = () => {
   return (
-    <section className="bg-white py-16 px-4 sm:px-8 lg:px-20">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-          Success Stories
-        </h2>
-        <div className="h-1 w-24 bg-[#fb5607] mx-auto mb-10 rounded-full" />
+    <section className="bg-gradient-to-br from-gray-900 to-black py-20 px-6 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-green-500/10 blur-[150px] rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse" />
 
-        <div className="flex flex-wrap justify-center gap-8">
-          {students.map((student, index) => (
-            <div
-              key={index}
-              className="w-40 text-center hover:scale-105 transition-transform duration-300"
-            >
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#5ce1e6]">
-                <Image
-                  src={student.image}
-                  alt={student.name}
-                  width={128}
-                  height={128}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <h4 className="text-md font-semibold text-[#fb5607]">{student.name}</h4>
-              <p className="text-sm text-gray-600">{student.university}</p>
-            </div>
-          ))}
+      <div className="container mx-auto relative z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center mb-16 text-white drop-shadow-glow"
+        >
+          Success Stories
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <TestimonialCard
+            name="AhenPink"
+            role="Women Only Bike Taxi"
+            content="Achieved a 50% increase in website traffic and a 35% rise in conversions."
+            avatar="static-assets/AhenPink.png" 
+            delay={0.1}
+          />
+
+          <TestimonialCard
+            name="NSR."
+            role="Influencer"
+            content="Advocated for safer public spaces, impacting 120+ daily commuters through awareness campaigns."
+            avatar="static-assets/NSR.jpg" 
+            delay={0.2}
+          />
         </div>
       </div>
     </section>
