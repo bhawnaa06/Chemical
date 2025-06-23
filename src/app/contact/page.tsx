@@ -2,7 +2,12 @@
 import React, { useState } from 'react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
   const [status, setStatus] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -21,7 +26,13 @@ const Contact = () => {
     const result = await res.json();
     if (result.success) {
       setStatus('Message sent!');
-      setFormData({ name: '', email: '', message: '' });
+      const whatsappNumber = '918252448370'; // your WhatsApp number (without +)
+      const message = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      window.open(whatsappURL, '_blank');
+
+      setFormData({ name: '', email: '', phone: '', message: '' });
     } else {
       setStatus('Failed to send.');
     }
@@ -80,6 +91,15 @@ const Contact = () => {
               name="email"
               placeholder="Email"
               value={formData.email}
+              onChange={handleChange}
+              className="w-full border-b border-gray-300 focus:outline-none py-2"
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
               onChange={handleChange}
               className="w-full border-b border-gray-300 focus:outline-none py-2"
               required

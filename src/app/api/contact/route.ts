@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
-  const { name, email, message } = await req.json();
+  const { name, email, phone, message } = await req.json(); // ✅ Include phone
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -17,12 +17,19 @@ export async function POST(req: Request) {
       from: email,
       to: process.env.EMAIL_USER,
       subject: `Chemical Form Lead from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      text: `
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Message:
+${message}
+      `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error(error);
+    console.error('Email sending error:', error);
     return NextResponse.json({ success: false, error });
   }
 }
