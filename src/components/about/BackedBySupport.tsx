@@ -46,7 +46,7 @@ const BackedBySupport = () => (
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front relative rounded-xl shadow-lg hover:shadow-2xl transition-shadow border border-blue-500/50 hover:border-green-500/80">
-                  <Image src="/aditya.jpg" alt="Partner 1" fill className="rounded object-cover" />
+                  <Image src="/rangan.jpg" alt="Partner 1" fill className="rounded object-cover" />
                 </div>
                 <div className="flip-card-back rounded-xl shadow-lg hover:shadow-2xl transition-shadow border border-blue-500/50 hover:border-green-500/80">
                   <p className="text-sm">University R&D Division — specialized in AI prototyping.</p>
@@ -88,10 +88,10 @@ const BackedBySupport = () => (
             <div className="flip-card ">
               <div className="flip-card-inner">
                 <div className="flip-card-front relative rounded-xl shadow-lg hover:shadow-2xl transition-shadow border border-blue-500/50 hover:border-green-500/80">
-                  <Image src="/rangan.jpg" alt="Investor 1" fill className="rounded object-cover" />
+                  <Image src="/Harshit Luthra.jpg" alt="Investor 1" fill className="rounded object-cover" />
                 </div>
                 <div className="flip-card-back rounded-xl shadow-lg hover:shadow-2xl transition-shadow border border-blue-500/50 hover:border-green-500/80">
-                  <p className="text-sm">National Innovation Fund — Seed Grant awarded in 2024.</p>
+                  <p className="text-sm">Harshit Luthra brings valuable industry expertise and strategic insight, playing a key role in shaping our foundation and driving our vision forward.</p>
                 </div>
               </div>
             </div>
@@ -100,10 +100,10 @@ const BackedBySupport = () => (
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front relative rounded-xl shadow-lg hover:shadow-2xl transition-shadow border border-blue-500/50 hover:border-green-500/80">
-                  <Image src="/rangan.jpg" alt="Investor 2" fill className="rounded object-cover" />
+                  <Image src="/utkarsh-jain.jpg" alt="Investor 2" fill className="rounded object-cover" />
                 </div>
                 <div className="flip-card-back rounded-xl shadow-lg hover:shadow-2xl transition-shadow border border-blue-500/50 hover:border-green-500/80">
-                  <p className="text-sm">TechAngels VC — Series A investors with AI portfolio.</p>
+                  <p className="text-sm">Dr. Utkarsh Jain, Associate Professor at UPES, is a top 2% global scientist known for his work in nano-biosensing and biomedical diagnostics with 95+ publications and 18 patents.</p>
                 </div>
               </div>
             </div>
