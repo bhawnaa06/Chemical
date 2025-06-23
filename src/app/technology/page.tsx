@@ -1,18 +1,17 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { GrTechnology } from 'react-icons/gr';
 
-const technology = () => {
-   const [timeLeft, setTimeLeft] = useState({
+const Technology = () => {
+  const [timeLeft, setTimeLeft] = useState({
     days: '00',
     hours: '00',
     minutes: '00',
     seconds: '00',
   });
 
-//   const fullText = 'COMING SOON';
-//   const [displayedText, setDisplayedText] = useState('');
+  const fullText = 'COMING SOON';
+  const [typed, setTyped] = useState('');
 
   useEffect(() => {
     const endDate = new Date().getTime() + 24 * 60 * 60 * 1000;
@@ -26,35 +25,33 @@ const technology = () => {
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+      if (distance < 0) {
+        clearInterval(interval);
+        return;
+      }
+
       setTimeLeft({
         days: String(days).padStart(2, '0'),
         hours: String(hours).padStart(2, '0'),
         minutes: String(minutes).padStart(2, '0'),
         seconds: String(seconds).padStart(2, '0'),
       });
-
-      if (distance < 0) clearInterval(interval);
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // Typing animation for "COMING SOON"
- const fullText = 'COMING SOON';
-  const [typed, setTyped] = useState('');
-
   useEffect(() => {
-    if (typed.length === fullText.length) return;          // done
-    const id = setTimeout(() => {
-      setTyped(fullText.slice(0, typed.length + 1));      // add next letter
+    if (typed.length === fullText.length) return;
+    const timeout = setTimeout(() => {
+      setTyped(fullText.slice(0, typed.length + 1));
     }, 150);
-    return () => clearTimeout(id);                         // clean‑up each run
-  }, [typed]);                                             // ← depends on state, not StrictMode
+    return () => clearTimeout(timeout);
+  }, [typed]);
 
   return (
     <div className="relative h-screen w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex flex-col items-center justify-center text-center">
-
-      {/* Bubbles */}
+      {/* Decorative Bubbles */}
       <div className="absolute top-10 left-10 flex space-x-4 opacity-20">
         <div className="w-16 h-16 bg-gray-600 rounded-full"></div>
         <div className="w-12 h-12 bg-gray-700 rounded-full"></div>
@@ -80,11 +77,12 @@ const technology = () => {
         <div>{timeLeft.seconds}<span className="text-xs block">Seconds</span></div>
       </div>
 
-      {/* Scroll down arrow */}
+      {/* Scroll Prompt */}
       <div className="absolute bottom-8 text-sm text-gray-400 animate-bounce">
         Scroll Down ↓
       </div>
     </div>
   );
 };
-export default technology;
+
+export default Technology;

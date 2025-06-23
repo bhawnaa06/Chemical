@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 // import AnimatedButton from "@/app/components/Buttons/AnimatedButton";
 
 const PopularCourses = () => {
