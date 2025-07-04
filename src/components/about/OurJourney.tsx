@@ -10,7 +10,7 @@ const fadeUpVariant = {
 };
 
 const OurJourney = () => (
-  <section className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-gray-900 to-black py-30 px-30 gap-10">
+  <section className="flex flex-col md:flex-row items-center justify-between bg-black py-30 px-30 gap-10">
     
     {/* Text Section with Fade-Up Animation */}
     <motion.div

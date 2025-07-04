@@ -22,11 +22,11 @@ const fadeUp: Variants = {
 
 const teamMembers = [
   {
-    name: 'Vin Diesel',
+    name: 'Harshit Luthra',
     role: 'Senior App Developer',
     description:
-      'Vin specializes in mobile app architecture and leads the frontend engineering team with innovation and precision.',
-    image: '/aditya.jpg',
+      'Harshit Luthra brings valuable industry expertise and strategic insight, playing a key role in shaping our foundation and driving our vision forward.',
+    image: '/Harshit Luthra.jpg',
     social: [<FaFacebook key="f" />, <FaInstagram key="i" />, <FaTwitter key="t" />],
   },
   {
@@ -59,7 +59,7 @@ const OurTeam = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-black py-30 px-6 text-white">
+    <section className="bg-black py-30 px-6 text-white">
       <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
 
       <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">

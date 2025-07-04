@@ -9,7 +9,7 @@ const fadeUpVariant = {
 };
 
 const FutureOfLabs = () => (
-  <section className="bg-gradient-to-br from-gray-900 to-black text-white py-16 px-6">
+  <section className="bg-black text-white py-16 px-6">
     
          <motion.div
               className="md mb-10 md:mb-0"

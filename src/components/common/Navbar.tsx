@@ -10,7 +10,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="bg-white text-[#6c757d] sticky top-0 z-50 w-full shadow">
+    <header className="bg-[#2d2d34] text-[#6c757d] sticky top-0 z-50 w-full shadow">
       <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -24,7 +24,7 @@ export default function Navbar() {
           <span className="text-xl font-bold text-[#495057] whitespace-nowrap">USENSEON LABS</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#80ed99]">
           <Link href="/" className="hover:text-[#495057] transition-colors">Home</Link>
           {/* <Link href="/products" className="hover:text-[#495057] transition-colors">Products</Link> */}
           <Link href="/solutions" className="hover:text-[#495057] transition-colors">Solutions</Link>
@@ -41,7 +41,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden px-4 py-2 bg-white space-y-3 text-[#6c757d]">
           <Link href="/" className="block py-2 hover:text-[#495057] transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link href="/products" className="block py-2 hover:text-[#495057] transition-colors" onClick={() => setIsOpen(false)}>Products</Link>
+          {/* <Link href="/products" className="block py-2 hover:text-[#495057] transition-colors" onClick={() => setIsOpen(false)}>Products</Link> */}
           <Link href="/solutions" className="block py-2 hover:text-[#495057] transition-colors" onClick={() => setIsOpen(false)}>Solutions</Link>
           <Link href="/technology" className="block py-2 hover:text-[#495057] transition-colors" onClick={() => setIsOpen(false)}>Technology</Link>
           <Link href="/contact" className="block py-2 hover:text-[#495057] transition-colors" onClick={() => setIsOpen(false)}>Contact</Link>

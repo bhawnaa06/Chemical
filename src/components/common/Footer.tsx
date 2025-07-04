@@ -16,7 +16,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white text-gray-700 pt-16 pb-10 border-t border-gray-200">
+    <footer className="bg-[#212529] text-white pt-16 pb-10 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         {/* Logo & Description */}
         <div>
@@ -31,7 +31,7 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-md font-semibold mb-3 text-[#495057]">Quick Links</h4>
+          <h4 className="text-md font-semibold mb-3 text-white">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li><Link href="/" className="hover:text-[#495057] transition">Home</Link></li>
             <li><Link href="/about" className="hover:text-[#495057] transition">About Us</Link></li>
@@ -45,7 +45,7 @@ const Footer = () => {
 
         {/* Study Destinations */}
         <div>
-          <h4 className="text-md font-semibold mb-3 text-[#495057]">Study Destinations</h4>
+          <h4 className="text-md font-semibold mb-3 text-white">Study Destinations</h4>
           <ul className="space-y-2 text-sm">
             {countries.map((country, index) => (
               <li key={index}>
@@ -63,7 +63,7 @@ const Footer = () => {
         {/* Contact & Socials */}
         <div className="flex flex-col justify-between">
           <div>
-            <h4 className="text-md font-semibold mb-3 text-[#495057]">Contact</h4>
+            <h4 className="text-md font-semibold mb-3 text-white">Contact</h4>
             <p className="text-sm">📍 Pune | Delhi | Mumbai | Nashik</p>
             <p className="text-sm mt-2">📞 +91 96506 80072</p>
             <p className="text-sm">📧 info@studysmart.co.in</p>

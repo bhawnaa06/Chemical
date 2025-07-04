@@ -10,7 +10,7 @@ const fadeUpVariant = {
 };
 
 const OurVision = () => (
-  <section className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-black to-gray-900 py-30 px-30 gap-10">
+  <section className="flex flex-col md:flex-row items-center justify-between bg-black py-30 px-30 gap-10">
     
     {/* Image Section with Animation */}
     <motion.div

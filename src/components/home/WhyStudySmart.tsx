@@ -38,7 +38,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, descriptio
 
 export default function WhyUsenseonLabs() {
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-black text-white py-20 px-6 text-center relative overflow-hidden">
+    <section className="bg-black text-white py-20 px-6 text-center relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-green-500/10 blur-[150px] rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse" />
 
       <motion.h2
@@ -54,37 +54,37 @@ export default function WhyUsenseonLabs() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
         <FeatureCard
           icon={FlaskConical}
-          title="Advanced Formulations"
+          title="Predictive AI"
           description="Cutting-edge chemical products tailored for evolving industrial needs."
           delay={0.1}
         />
         <FeatureCard
           icon={Factory}
-          title="Industrial-Grade Quality"
+          title= "Internet of things"
           description="Reliable and scalable solutions for manufacturing and laboratory use."
           delay={0.2}
         />
         <FeatureCard
           icon={ShieldCheck}
-          title="Safety & Compliance"
+          title="Sustainibilty Driven"
           description="Strict adherence to safety protocols and global industry standards."
           delay={0.3}
         />
         <FeatureCard
           icon={TrendingUp}
-          title="Innovation-Driven"
+          title="Industrial Ready Compliant"
           description="Constant R&D for next-gen chemical technologies and improvements."
           delay={0.4}
         />
         <FeatureCard
           icon={BookOpenCheck}
-          title="Technical Documentation"
+          title="Cutting Edge Sensing Tech"
           description="Detailed MSDS, COA, and product guides to support your operations."
           delay={0.5}
         />
         <FeatureCard
           icon={Network}
-          title="Global Reach"
+          title="Next gen MCU"
           description="Serving clients across industries and geographies with trust."
           delay={0.6}
         />
